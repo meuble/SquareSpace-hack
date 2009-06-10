@@ -1,0 +1,10 @@
+
+# Set here your twitter account with email and password
+fake_meuble: 
+  email: meuble@imeuble.info
+  password: proutcaca
+
+# It can be a username to
+meuble: 
+  email: meuble
+  password: proutcaca
