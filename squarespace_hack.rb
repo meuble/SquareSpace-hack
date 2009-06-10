@@ -2,10 +2,11 @@ require "yaml"
 require 'rubygems'
 require 'twitter'
 require 'net/http'
+require 'pp'
 
 class Squarespace_hack
   def initialize(user_name)
-    p "initializing"
+    p "initializing #{user_name}"
     @user_name = user_name
     load_twitter_config_for
     get_twitter_session
@@ -40,13 +41,12 @@ class Squarespace_hack
     p "go !"
     while not winner? do
       text =  random_twitt
-      p 'twitting : ' + text
+      p 'twitting for ' + @user_name + ' : ' + text
       @client.update(text)
-      sleep 120
+      sleep 90
     end
     p "WE WON !!!!!!!"
   end
 end
 
-
-Squarespace_hack.new('fake_meuble')
+Squarespace_hack.new(ARGV.first)
